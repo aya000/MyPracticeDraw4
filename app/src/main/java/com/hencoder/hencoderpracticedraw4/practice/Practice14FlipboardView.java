@@ -65,12 +65,28 @@ public class Practice14FlipboardView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        /**
+         * 下面这个小小的算法
+         * */
         int bitmapWidth = bitmap.getWidth();
         int bitmapHeight = bitmap.getHeight();
         int centerX = getWidth() / 2;
         int centerY = getHeight() / 2;
         int x = centerX - bitmapWidth / 2;
         int y = centerY - bitmapHeight / 2;
+
+
+        /**
+         * 绘制上半部分
+         * */
+        canvas.save();
+        canvas.clipRect(0, 0, getWidth(), centerY);
+        canvas.drawBitmap(bitmap, x, y, paint);
+        canvas.restore();
+
+        /**
+         * demo未完成
+         * */
 
         canvas.save();
 
